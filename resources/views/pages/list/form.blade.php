@@ -1,0 +1,49 @@
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">×</span></button>
+    <h4 class="modal-title"> {{ (isset($list)) ? 'Editar' : 'Adicionar' }} Lista</h4>
+</div>
+
+
+
+<!--,'id' => 'form-list'-->
+@if(isset($list))
+    {!! Form::model($list, ['action' => ('FormList\ListController@store'), 'method' => 'POST']) !!}
+@else
+    {!! Form::open([ 'action' => ('FormList\ListController@store'),'method' => 'POST']) !!}
+
+@endif
+<div class="modal-body">
+
+    <div id='alert-modal' class="alert" style="display: none;">
+    </div>
+
+    {!! Form::hidden('id', null) !!}
+
+
+    {!! Form::label('name', 'Nome:') !!}
+    {!! Form::text('name', null, ['class' => 'form-control']) !!}
+    <br>
+    {!! Form::label('name_plura', 'Nome Plural:') !!}
+    {!! Form::text('name_plura', null, ['class' => 'form-control']) !!}
+    <br>
+    {!! Form::label('sort_model', 'Ordenação:') !!}
+    {!! Form::select('sort_model',[''=>'Selecionar Ordenação','Alpha' => 'Alfabética', '-Alpha' => 'Alfabética (Invertida)', 'SortCol' => 'Manualmente' ],null, ['class' => 'form-control']) !!}
+    <br>
+
+    {!! Form::label('notes', 'Notas Internas:') !!}
+    {!! Form::textarea('notes', null, ['class' => 'form-control']) !!}
+
+</div>
+<div class="modal-footer">
+    {!! Form::button('Cancelar', ['class' => 'btn btn-default pull-left', 'id' => 'fechar-lista']) !!}
+    {!! Form::submit('Salvar', ['class' => 'btn btn-success', 'id' => empty($list)?'salvar-list':'']) !!}
+</div>
+
+{!! Form::close() !!}
+
+
+
+
+

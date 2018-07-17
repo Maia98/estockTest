@@ -1,0 +1,5 @@
+INSERT INTO roles(id, name, description) VALUES (1, 'ADMINISTRADOR', 'Administrador do sistema');
+INSERT INTO roles(id, name, description) VALUES (2, 'ALMOXARIFE', 'Almoxarifado');
+INSERT INTO roles(id, name, description) VALUES (3, 'CONSULTA', 'Consulta');
+INSERT INTO roles(id, name, description) VALUES (4, 'MEDICAO', 'Medição');
+INSERT INTO roles(id, name, description) VALUES (5, 'OPERACIONAL', 'Operacional');
