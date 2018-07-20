@@ -19,7 +19,8 @@ class CreateFormFieldsTable extends Migration
             $table->foreign('form_id')->references('id')->on('forms');
             $table->integer('list_item_id');
             $table->foreign('list_item_id')->references('id')->on('list_items');
-            $table->string('type', 255);
+            $table->integer('field_type_id');
+            $table->foreign('field_type_id')->references('id')->on('field_types');
             $table->string('label', 255);
             $table->tinyinteger('required');
             $table->tinyinteger('private');
