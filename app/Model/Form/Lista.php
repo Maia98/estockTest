@@ -9,7 +9,7 @@ class Lista extends Model
     //
 
     protected $table    = "listas";
-    protected $fillable = ['name', 'name_plura', 'sort_model', 'notes'];
+    protected $fillable = ['name', 'name_plura', 'sort_model', 'notes', 'type'];
 
     public function rules(){
         return [

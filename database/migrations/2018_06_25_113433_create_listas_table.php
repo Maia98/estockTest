@@ -19,6 +19,7 @@ class CreateListasTable extends Migration
             $table->string('name_plura', 350);
             $table->enum('sort_model',['Alpha','-Alpha','SortCol']);
             $table->text('notes')->nullable();
+            $table->enum('type', ['cbox','radiob','select']);
             $table->timestamps();
         });
     }

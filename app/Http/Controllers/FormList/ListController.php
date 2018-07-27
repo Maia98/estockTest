@@ -75,10 +75,12 @@ class ListController extends Controller
             'name_plura' => 'required',
             'sort_model' => 'required',
             'notes' => 'max:255|nullable',
+            'type' => 'required'
         ], [
             'name.required' => 'Nome não preenchido',
-            'name_plura.required' => 'Nome Plural não preenchido',
-            'sort_model.required' => 'Ordenação não selecionada',
+            'name_plura.required' => 'Nome Plural não preenchido.',
+            'sort_model.required' => 'Ordenação não selecionada.',
+            'type.requerid' => 'Tipo de Campo não selecionado.'
             ]
         );
 

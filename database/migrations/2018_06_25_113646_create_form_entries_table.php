@@ -16,10 +16,10 @@ class CreateFormEntriesTable extends Migration
         Schema::create('form_entries', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('form_id');
-            $table->foreign('form_id')->references('id')->on('forms');
+            $table->foreign('form_id')->references('id')->on('forms')->onDelete('cascade');;
             $table->integer('object_id');
-            $table->char('object_type', 1);
-            $table->integer('sort');
+            $table->char('object_type', 1)->nullable();
+            $table->integer('sort')->nullable();
             $table->timestamps();
         });
     }
