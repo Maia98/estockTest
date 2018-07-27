@@ -27,9 +27,12 @@
     {!! Form::label('instructions', 'Instrução:') !!}
     {!! Form::text('instructions', null, ['class' => 'form-control']) !!}
     <br>
+<<<<<<< HEAD
     {!! Form::label('nametable', 'Nome do Banco:') !!}
     {!! Form::text('nametable',null, ['class' => 'form-control']) !!}
     <br>
+=======
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
     @if(isset($form))
     {!! Form::label('deletable', 'Permissão para deletar Formuário:') !!}
     {!! Form::select('deletable',[''=>'Selecionar Opção','1' => 'Sim', '0' => 'Não'],null, ['class' => 'form-control']) !!}
@@ -38,7 +41,13 @@
     {!! Form::label('notes', 'Notas Internas:') !!}
     {!! Form::textarea('notes', null, ['class' => 'form-control' ]) !!}
     <br>
+<<<<<<< HEAD
     
+=======
+    {{--{!! Form::label('type', 'Tipo:') !!}
+    {!! Form::select('type',[''=>'Selecionar Ordenação','u' => 'U', 't' => 'T', 'c' => 'C','o' => 'O' ],null, ['class' => 'form-control']) !!}
+    <br>--}}
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
     
 </div>
 <div class="modal-footer">

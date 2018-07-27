@@ -4,16 +4,23 @@ namespace App\Http\Controllers\FormList;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Form\Form;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
 
 class FormController extends Controller
 {
     private $nElem = 10;
+=======
+
+class FormController extends Controller
+{
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     public function index(Request $request)
     {
         $this->authorize('EXCLUIR_TABELAS_SISTEMA');
@@ -28,6 +35,14 @@ class FormController extends Controller
         }else
             $result = Form::paginate($this->nElem);
         
+=======
+    public function index()
+    {
+        //
+
+       $result = Form::all();
+
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
         return view('pages.form.index', compact(['result']));
     }
 
@@ -39,7 +54,10 @@ class FormController extends Controller
     public function create()
     {
         //
+<<<<<<< HEAD
         $this->authorize('EXCLUIR_TABELAS_SISTEMA');
+=======
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
 
         return view("pages.form.form", compact(''));
     }
@@ -69,11 +87,16 @@ class FormController extends Controller
         $validator = validator($request->all(), [
             'title' => 'required',
             'notes' => 'max:255|nullable',
+<<<<<<< HEAD
             'nametable' => 'required|unique:forms'
         ], [
             'title.required' => 'Título não preenchido',
             'nametable.required' => 'Nome da Tabela não preenchido.',
             'nametable.unique' => 'Nome da Tabela já existente.'
+=======
+        ], [
+            'title.required' => 'Título não preenchido',
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
             ]
         );
 
@@ -194,7 +217,11 @@ class FormController extends Controller
                 return redirect()->action('FormList\FormController@index');
             } else{
                 $alert = "Erro ao excluir Formulário.";
+<<<<<<< HEAD
                 return redirect()->action('FormList\FormController@index',campact([ 'alert', 'result']));
+=======
+                return redirect()->action('FormList\FormController@index', 'alert', 'result');
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
             }
         }else {
             $alert = "Formulário não tem permissão para ser excluido.";

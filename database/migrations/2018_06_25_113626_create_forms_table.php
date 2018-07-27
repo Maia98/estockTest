@@ -17,7 +17,10 @@ class CreateFormsTable extends Migration
             $table->increments('id');
             $table->string('type', 8)->nullable();
             $table->tinyinteger('deletable')->default(1);
+<<<<<<< HEAD
             $table->string('nametable')->unique();
+=======
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
             $table->string('title');
             $table->string('instructions', 512)->nullable();
             $table->text('notes')->nullable();

@@ -32,6 +32,7 @@ function salvar(){
         });
     
 }
+<<<<<<< HEAD
 
 function editarField(id){
   
@@ -82,3 +83,5 @@ function configField(id){
 }
 
  
+=======
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
