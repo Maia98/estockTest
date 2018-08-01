@@ -15,11 +15,12 @@ class CreateFormsTable extends Migration
     {
         Schema::create('forms', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('type', 8);
-            $table->tinyinteger('deletable');
+            $table->string('type', 8)->nullable();
+            $table->tinyinteger('deletable')->default(1);
+            $table->string('nametable')->default('table');
             $table->string('title');
-            $table->string('instructions', 512);
-            $table->text('notes');
+            $table->string('instructions', 512)->nullable();
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }

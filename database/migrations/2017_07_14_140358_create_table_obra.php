@@ -30,7 +30,7 @@ class CreateTableObra extends Migration
             $table->dateTime('prazo_execucao_fim')->nullable();
             $table->double('valor_orcado')->nullable();
             $table->string('medidor',300)->nullable();
-            $table->string('instalacao',300)->nullable();
+            $table->string('instalacao',800)->nullable();
             $table->string('observacao',500)->nullable();
             $table->timestamps();
 

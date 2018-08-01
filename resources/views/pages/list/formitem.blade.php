@@ -32,7 +32,7 @@
     @endif
         <div class="col-md-8">
 
-    {!! Form::label('value', 'Valor:') !!}
+    {!! Form::label('value', 'Descrição:') !!}
     {!! Form::text('value', null, ['class' => 'form-control', 'id' => 'value']) !!}
 
         </div>
@@ -64,8 +64,7 @@
 <br>
 <hr>
 <br>
-<div class="modal-footer border">
-    {!! Form::button('Cancelar', ['class' => 'btn btn-default pull-left', 'id' => 'fechar-item']) !!}
+<div class="modal-footer border"><button type="button" class="btn btn-default pull-left" data-dismiss="modal" aria-label="Close">Cancelar</button>
     @if(!isset($item))
     {!! Form::button('Adicionar', ['class' => 'btn btn-success', 'id' => 'salvar-item','onclick' => 'insertItem()']) !!}
     @else

@@ -31,13 +31,15 @@
     {!! Form::label('sort_model', 'Ordenação:') !!}
     {!! Form::select('sort_model',[''=>'Selecionar Ordenação','Alpha' => 'Alfabética', '-Alpha' => 'Alfabética (Invertida)', 'SortCol' => 'Manualmente' ],null, ['class' => 'form-control']) !!}
     <br>
-
+    {!! Form::label('type', 'Tipo de Campo:') !!}
+    {!! Form::select('type',[''=>'Selecionar Tipo','cbox' => 'CheckBox', 'radiob' => 'Botão Rádio', 'select' => 'Seleção' ],null, ['class' => 'form-control']) !!}
+    <br>
     {!! Form::label('notes', 'Notas Internas:') !!}
     {!! Form::textarea('notes', null, ['class' => 'form-control']) !!}
 
 </div>
 <div class="modal-footer">
-    {!! Form::button('Cancelar', ['class' => 'btn btn-default pull-left', 'id' => 'fechar-lista']) !!}
+    <button type="button" class="btn btn-default pull-left" data-dismiss="modal" aria-label="Close">Cancelar</button>
     {!! Form::submit('Salvar', ['class' => 'btn btn-success', 'id' => empty($list)?'salvar-list':'']) !!}
 </div>
 

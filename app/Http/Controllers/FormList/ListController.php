@@ -11,32 +11,27 @@ use App\Http\Requests\ListFormValidationRequest;
 use Illuminate\Support\Facades\DB;
 class ListController extends Controller
 {
+    private $nElem = 5;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-
         $this->authorize('CONSULTAR_TABELAS_SISTEMA');
-        //$filter = $request->input('filtro_input');
+        $filter = $request->input('filtro_input');
 
-        $result = Lista::orderBy('id');
-
-        /*if($filter){
-            $filter_like = "%".$filter."%";
-
-            $result = $result->where('nome','ilike', $filter_like)
-                ->orWhere('descricao','ilike',$filter_like);
-        }*/
-
-        $result = $result->paginate(10);
-
-
-        return view('pages.list.index', compact('result'));
-
+        $result = Lista::orderBy('id')->paginate($this->nElem);
+        if($filter){
+            $filter_like = "%".$filter."%"; 
+            $result = Lista::where('name','ilike', $filter_like)
+                            ->orWhere('notes','ilike',$filter_like)
+                            ->paginate($this->nElem);
+        }else
+            $result = Lista::paginate($this->nElem);
+        
+        return view('pages.list.index', compact(['result']));
     }
 
     /**
@@ -75,10 +70,12 @@ class ListController extends Controller
             'name_plura' => 'required',
             'sort_model' => 'required',
             'notes' => 'max:255|nullable',
+            'type' => 'required'
         ], [
             'name.required' => 'Nome não preenchido',
-            'name_plura.required' => 'Nome Plural não preenchido',
-            'sort_model.required' => 'Ordenação não selecionada',
+            'name_plura.required' => 'Nome Plural não preenchido.',
+            'sort_model.required' => 'Ordenação não selecionada.',
+            'type.requerid' => 'Tipo de Campo não selecionado.'
             ]
         );
 

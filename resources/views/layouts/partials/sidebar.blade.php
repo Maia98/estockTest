@@ -105,7 +105,7 @@
               <li class="{!! Request::is('/empresa') ? 'active' : '' !!}"><a href="{{ route('list') }}"><i class="glyphicon glyphicon-th-list"></i>
                 <span>Listas</span></a></li>
               <li class="{!! Request::is('/empresa') ? 'active' : '' !!}">
-              <a href="#"><i class="glyphicon glyphicon-copy"></i>
+              <a href="{{ route('form') }}"><i class="glyphicon glyphicon-copy"></i>
                 <span>Formulários</span></a></li>
             </ul>
           </li>

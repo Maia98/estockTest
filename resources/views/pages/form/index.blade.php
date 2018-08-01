@@ -4,7 +4,7 @@
 
     <div class="box">
         <div class="box-header page-header">
-            <h1><i class="glyphicon glyphicon-menu-right"></i>Listas</h1>
+            <h1><i class="glyphicon glyphicon-menu-right"></i>Formulários</h1>
             @include('layouts.partials.alert-notify')
 
             @if ($errors->any())
@@ -14,6 +14,7 @@
                 </button>
                 <h4><i class="icon fa fa-ban"></i> Alerta</h4>
                 <ul>
+                    
                 @foreach ($errors->all() as $error)
                     <li><p>{{ $error }}</p></li>
                 @endforeach
@@ -23,17 +24,30 @@
             @endif
 
 
+            @if(isset($alert))
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4><i class="icon fa fa-ban"></i> Alerta</h4>
+                    <ul>
+                        <li>{{$alert}}</li>
+                    </ul>
+    
+                </div>
+            @endif
+
         </div>
         <div class="box-body">
             <div class="row">
                 <div class="col-md-8 col-xs-6">  
                     <div class="input-group">
                         <!--  onclick="inserir();" -->
-                         <button class="btn btn-primary" onclick="inserir();"><i class="glyphicon glyphicon-plus"></i> Adicionar</button>
+                        <button class="btn btn-primary" onclick="inserir();"><i class="glyphicon glyphicon-plus"></i> Adicionar</button>
                     </div>
                 </div>
 
-                {!! Form::open(['action' => ('FormList\ListController@index'), 'id' => 'form', 'method' => 'GET']) !!}
+                {!! Form::open(['action' => ('FormList\FormController@index'), 'id' => 'form', 'method' => 'GET']) !!}
                 <div class="col-md-4  col-xs-6">
                     <div class="input-group">
                        {!! Form::text('filtro_input', null, ['class' => 'form-control', 'placeholder' => 'Filtrar...']) !!}
@@ -49,30 +63,26 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th style="width: 50px">#</th>
-                        <th>Nome</th>
-                        <th>Nome no Plural</th>
-                        <th>Ordenação</th>
-                        <th>Tipo de Campo</th>
-                        <th>Descrição</th>
-                        <th style="width: 90px">Ações</th>
+                        <th class="col-sm-1">#</th>
+                        <th class="col-md-2">Título</th>
+                        <th class="col-md-4">Instrução</th>
+                        <th class="col-md-4">Descrição</th>
+                        <th class="col-md-1">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($result as $row)
-                    <tr>
-                        <td>{{ $row->id }}</td>
-                        <td><a onclick="createItem({{$row->id}})" href="#">{{ $row->name }}</a> </td>
-                        <td>{{ $row->name_plura }}</td>
-                        <td>{{ $row->sort_model }}</td>
-                        <td>{{$row->type}}</td>
-                        <td>{{ $row->notes }}</td>
-                <td>
-                    <button  type="button" class="btn btn-primary btn-xs" onclick="editar({{ $row->id }})"> <i class="glyphicon glyphicon-pencil"></i>&nbsp;</button>
-                    <button class="btn btn-danger btn-xs" onclick="deletar({{ $row->id }} )"><i class="glyphicon glyphicon-trash"></i>&nbsp;</button>
-                </td>
-                </tr>
-                @endforeach
+                    @foreach ($result as $row)
+                        <tr>
+                            <td>{{ $row->id }}</td>
+                            <td><a  href="{{route('field',$row->id)}}">{{ $row->title }}</a> </td>
+                            <td>{{ $row->instructions }}</td>
+                            <td>{{ $row->notes }}</td>
+                            <td>
+                                <button  type="button" class="btn btn-primary btn-xs" onclick="editar({{ $row->id }})"> <i class="glyphicon glyphicon-pencil"></i>&nbsp;</button>
+                                <button class="btn btn-danger btn-xs" onclick="deletar({{ $row->id }} )"><i class="glyphicon glyphicon-trash"></i>&nbsp;</button>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
             {{ $result->links() }}
@@ -96,8 +106,8 @@
     @includeIf('layouts.partials.modal', ['idModal' => 'modal-form-cidade', 'idContent' => 'content-modal-cidade' ])
     @includeIf('layouts.partials.modal', ['idModal' => 'modal-form-regional', 'idContent' => 'content-modal-regional' ]) --}}
     -->
-    @includeIf('layouts.partials.modal', ['idModal' => 'modal-form-list', 'idContent' => 'content-modal-list'])
-    @includeIf('layouts.partials.modal', ['idModal' => 'modal-form-item', 'idContent' => 'content-modal-item' ])
+    @includeIf('layouts.partials.modal', ['idModal' => 'modal-form-form', 'idContent' => 'content-modal-form'])
+    @includeIf('layouts.partials.modal', ['idModal' => 'modal-form-form', 'idContent' => 'content-modal-form' ])
    
 @stop
 
@@ -105,8 +115,10 @@
     
     {{--<script type="text/javascript" src="{{ url('js/tabelas-tipos/regional.js') }}"></script>
     <script type="text/javascript" src="{{ url('js/tabelas-tipos/cidade.js') }}"></script>
-    <script type="text/javascript" src="{{ url('js/tabelas-tipos/almoxarifado.js') }}"></script>--}}
-    <script type="text/javascript" src="{{ url('js/formlist/formlist.js') }}"></script>
+    <script type="text/javascript" src="{{ url('js/tabelas-tipos/almoxarifado.js') }}"></script>
     <script type="text/javascript" src="{{ url('js/formlist/formitem.js') }}"></script>
+    --}}
+    <script type="text/javascript" src="{{ url('js/formlist/form.js') }}"></script>
+    
     
 @stop

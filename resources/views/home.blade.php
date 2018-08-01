@@ -98,6 +98,18 @@
                             <!-- /.info-box-content -->
                         </div>
                     </div>
+                    <div class="col-lg-3">
+                        <div class="info-box bg-light-blue" style="width: 106%;overflow: hidden;">
+                            <span class="info-box-icon" style="width: 70px;"><i class="fa fa-file-text-o"></i></span>
+                            <div class="info-box-content" style="margin:0px 70px 0px 64px; padding: 5px 10px; width: 100%;">
+                                <h2><a href="{{route('showform')}}" style="color: #fff; font-weight: bold;">Formulários</a></h2>
+                                <div class="progress" style="margin: 5px -15px 5px -4px">
+                                    <div class="progress-bar" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
