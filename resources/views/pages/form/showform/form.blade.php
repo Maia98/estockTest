@@ -8,6 +8,7 @@
           
         </div>
         <div class="box-body">
+<<<<<<< HEAD
             @if(isset($data))
             {!! Form::model($data,[ 'action' => ('FormList\ShowFormController@update'),'method' => 'POST', 'class' => 'form']) !!}
             @else
@@ -26,6 +27,21 @@
                     <br>
                     {!! Form::submit('SALVAR', ['class' => 'btn btn-sm btn-success']) !!}
             {!! Form::close() !!}
+=======
+            
+            
+                <form method="" action="" class="form">
+                    @foreach ($formfields as $row)
+                        <strong>{{$row->label}}</strong>    {!! $row->configuration !!}
+                    <br>
+                    @endforeach
+                    <br>
+                    <input class="btn btn-md btn-success" type="submit" value="Salvar">
+                </form> 
+                
+                
+                
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
         </div>
 
             <br/>

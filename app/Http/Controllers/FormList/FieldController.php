@@ -7,18 +7,34 @@ use App\Http\Controllers\Controller;
 use App\Model\Form\Form;
 use App\Model\Form\Lista;
 use App\Model\Form\FieldType;
+<<<<<<< HEAD
 use App\Model\Form\FormField;
 use App\Model\Form\ListItem;
+=======
+<<<<<<< HEAD
+use App\Model\Form\FormField;
+use App\Model\Form\ListItem;
+=======
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
 use Illuminate\Support\Facades\DB;
 
 class FieldController extends Controller
 {
+<<<<<<< HEAD
     private $nElem = 5;
+=======
+<<<<<<< HEAD
+    private $nElem = 10;
+=======
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     public function index(Request $request, $id_form=null)
     {
         $this->authorize('EXCLUIR_TABELAS_SISTEMA');
@@ -46,11 +62,38 @@ class FieldController extends Controller
         else
             $fields = $form->form_fields()->where('form_id', $id_form)->paginate($this->nElem);
 
+=======
+<<<<<<< HEAD
+    public function index(Request $request, $id_form=null)
+    {
+        
+        //
+        $this->authorize('EXCLUIR_TABELAS_SISTEMA');
+        $form = Form::find($id_form);
+        $list = Lista::all();
+        $type = FieldType::all();
+        $filter = $request->input('filtro_input');
+        //$fields = new FormField;
+        
+        /* if($filter){
+            $filter_like = "%".$filter."%";      
+            $fields = $fields->where('label','ilike', $filter_like)
+                             ->orWhere('name','ilike', $filter_like)
+                             ->orWhere('type_id', 'ilike', $filter_like)
+                             ->paginate($this->nElem)->get();
+        }
+        else*/
+        $fields = $form->form_fields()->where('form_id', $id_form)->paginate($this->nElem);
+        
+        
+        
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
         return view('pages.form.indexField', compact(['form','list','type', 'fields']));
     }
 
     public function filter(Request $request)
     {
+<<<<<<< HEAD
         $this->authorize('EXCLUIR_TABELAS_SISTEMA');
         $form = Form::find($id_form);
         $list = Lista::all();
@@ -73,6 +116,46 @@ class FieldController extends Controller
         return view('pages.form.indexField', compact(['form','list','type', 'fields']));
     }
     
+=======
+        
+        //
+        $this->authorize('EXCLUIR_TABELAS_SISTEMA');
+        $form = Form::find($request->input('form_id'));
+        $list = Lista::all();
+        $type = FieldType::all();
+        $filter = $request->input('filtro_input');
+
+        /* if($filter){
+            $filter_like = "%".$filter."%";      
+            $fields = $fields->where('label','ilike', $filter_like)
+                             ->orWhere('name','ilike',$filter_like)->paginate($this->nElem);
+        }else
+            $fields = $form->form_fields()->where('form_id', $id_form)->paginate($this->nElem);
+        */
+        
+        return view('pages.form.indexField', compact(['form','list','type', 'fields']));
+    }
+
+    
+=======
+    public function index($id_form)
+    {
+        //
+        $this->authorize('EXCLUIR_TABELAS_SISTEMA');
+
+        //$fields = Form::find($id_form)->fields()->where('form_id',$id_form)->get();
+        //PAREI AQUI...
+        
+        $form = Form::find($id_form);
+        $lists = Lista::all();
+        $type = FieldType::all();
+        
+        return view('pages.form.indexField', compact(['form','lists','type']));
+        
+    }
+
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
     /**
      * Show the form for creating a new resource.
      *
@@ -87,7 +170,11 @@ class FieldController extends Controller
         $form = Form::find($id);
         $lists = Lista::all();
         $type = DB::table('field_types')->select('id','desc')->get();
+<<<<<<< HEAD
         return view('pages.form.formField', compact(['form_id', 'lists','type','form']));
+=======
+        return view('pages.form.formField', compact(['form_id', 'lists','type']));
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
     }
 
     /**
@@ -99,10 +186,15 @@ class FieldController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
         $this->authorize('EXCLUIR_TABELAS_SISTEMA');
 
         $id = $request->input('id');
         $form_id = $request->input('form_id');
+<<<<<<< HEAD
         echo $id. " --- " . $form_id;
         $field = FormField::find($id);
         $fields = FormField::where('form_id', $form_id)->get();
@@ -116,12 +208,16 @@ class FieldController extends Controller
 
     
         
+=======
+        $field = FormField::find($id);
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
         
         
         if (!$field) {
             $field = new FormField();
         }
 
+<<<<<<< HEAD
 
         $field->fill($request->all());
         //dd($field);
@@ -132,10 +228,40 @@ class FieldController extends Controller
             'required' => 'required|numeric',
             'private' =>  'required|numeric',
             'name' => 'required',
+=======
+        $field->fill($request->all());
+        //dd($field);
+=======
+       
+        $this->authorize('EXCLUIR_TABELAS_SISTEMA');
+        $id = $request->input('id');
+        $form_id = $request->input('form_id');
+        $field = FieldType::find($id);
+
+        if (!$field) {
+            $field = new FieldType();
+        }
+
+        $field->fill($request->all());
+         
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+        $validator = validator($request->all(), [
+            'label' => 'required',
+            'name' => 'required',
+            'form_id' => 'required',
+<<<<<<< HEAD
+            'type_id' => 'required',
+=======
+            'type' => 'required',
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+            'required' => 'required|numeric',
+            'private' =>  'required|numeric',
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
         ], [
                 'label.required' => 'Rótulo não preenchido.',
                 'name.required' => 'Variável não preenchida.',
                 'form_id.required' => 'id do formulário não preenchido.',
+<<<<<<< HEAD
                 'type_id.required' => 'Campo Tipo não selecionado.',
                 'required.required' => 'Campo Obrigatório não selecionado.',
                 'required.numeric' => 'Valor do campo Obrigatório não é numérico.',
@@ -146,17 +272,40 @@ class FieldController extends Controller
         );
     
         if ($validator->fails()) {
+=======
+<<<<<<< HEAD
+                'type_id.required' => 'Campo Tipo não selecionado.',
+=======
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+                'required.required' => 'Campo Obrigatório não selecionado.',
+                'required.numeric' => 'Valor do campo Obrigatório não é numérico.',
+                'private.required' => 'Campo Privado não selecionado.',
+                'private.numeric' => 'Valor do campo Privado não é numérico.' 
+            ]
+        );
+
+        if ($validator->fails()) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
             return redirect('/sistema/form/field/'.$form_id)
                 ->withErrors($validator)
                 ->withInput();
         } else {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
             if (isset($field)){
                 
                 if(substr($field->type_id,0,5) === 'type-'){
                     $field_type_id = substr($field->type_id, 5); 
                 }
                 elseif(substr($field->type_id,0,5) === 'list-'){
+<<<<<<< HEAD
                     $field_list_id = substr($field->type_id, 5);   
                 }
                 
@@ -165,6 +314,16 @@ class FieldController extends Controller
                     if(Lista::find($field_list_id)){
                         $list = Lista::find($field_list_id); 
                         $itens = ListItem::where('lista_id', $field_list_id)->get();
+=======
+                    $field_type_id = substr($field->type_id, 5);   
+                }
+                
+                if($field->type_id === 'list-'.$field_type_id ){
+            
+                    if(Lista::find($field_type_id)){
+                        $list = Lista::find($field_type_id); 
+                        $itens = ListItem::where('lista_id', $field_type_id)->get();
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
                         
                         //Tipo select
                         if($list->type === 'select'){
@@ -242,6 +401,17 @@ class FieldController extends Controller
                 $create = $field->create($request->all())->first();
             }*/
             if ($save /*|| $create*/) {
+<<<<<<< HEAD
+=======
+=======
+            if (isset($field))
+                $save = $field->save();
+            else
+                $create = $field->create($request->all());
+
+            if ($save || $create) {
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
                 return redirect('/sistema/form/field/'.$form_id);
             } else {
                 return redirect('/sistema/form/field/'.$form_id)
@@ -272,6 +442,10 @@ class FieldController extends Controller
     public function edit($id)
     {
         //
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
         $this->authorize('EXCLUIR_TABELAS_SISTEMA');
        
         $field = FormField::find($id);
@@ -279,6 +453,11 @@ class FieldController extends Controller
         $lists = Lista::all();
         $type = DB::table('field_types')->select('id','desc')->get();
         return view('pages.form.formField', compact(['field', 'lists','type']));
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
     }
 
     /**
@@ -293,6 +472,10 @@ class FieldController extends Controller
         //
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
 
     public function delete($id){
 
@@ -300,12 +483,21 @@ class FieldController extends Controller
 
         return view('pages.form.deleteField', compact(['field']));
     }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
     public function destroy(Request $request)
     {
         //
@@ -358,7 +550,11 @@ class FieldController extends Controller
                  class='form-control' id='".$field->name."'>";
                     $select .= "<option value=''>- Selecione uma opção -</option>";
                     foreach($itens as $i){
+<<<<<<< HEAD
                     $select .= "<option value='".$i->value."'>".$i->value."</option>";
+=======
+                    $select .= "<option value='".$i->id."'>".$i->value."</option>";
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
                      }
                  $select .= "</select>";
                  
@@ -395,4 +591,13 @@ class FieldController extends Controller
     
     }
 
+<<<<<<< HEAD
+=======
+=======
+    public function destroy($id)
+    {
+        //
+    }
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
 }

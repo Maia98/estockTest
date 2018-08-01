@@ -1,13 +1,28 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
 <?php
 use App\Model\Form\Lista;
 use App\Model\Form\FieldType;
 ?>
 
 @extends('layouts.default')
+<<<<<<< HEAD
+=======
+=======
+@extends('layouts.default')
+
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
 @section('main-content')
 
     <div class="box">
         <div class="box-header page-header">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
             <h1>
                 <i class="glyphicon glyphicon-menu-right"></i>Formulário-{{$form->title}}
                 <i class="glyphicon glyphicon-menu-right"></i>Campos
@@ -30,34 +45,89 @@ use App\Model\Form\FieldType;
             @endif
 
             
+<<<<<<< HEAD
             @if(session('alert'))
+=======
+=======
+        <h1><i class="glyphicon glyphicon-menu-right"></i>Formulário-{{$form->title}}
+                <i class="glyphicon glyphicon-menu-right"></i>Campos</h1>
+            @include('layouts.partials.alert-notify')
+
+            {{--@if ($errors->any())
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4><i class="icon fa fa-ban"></i> Alerta</h4>
+                <ul>
+                    
+                @foreach ($errors->all() as $error)
+                    <li><p>{{ $error }}</p></li>
+                @endforeach
+                </ul>
+
+            </div>
+            @endif
+
+
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+            @if(isset($alert))
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
             <div class="alert alert-danger alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h4><i class="icon fa fa-ban"></i> Alerta</h4>
                     <ul>
+<<<<<<< HEAD
                         <li>{{session('alert')}}</li>
+=======
+                        <li>{{$alert}}</li>
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
                     </ul>
     
                 </div>
             @endif
+<<<<<<< HEAD
        
+=======
+<<<<<<< HEAD
+       
+=======
+            --}}
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
 
         </div>
         <div class="box-body">
             <div class="row">
                 <div class="col-md-8 col-xs-6">  
                     <div class="input-group">
+<<<<<<< HEAD
                         <!--  onclick="inserir();"   'id' => 'form',-->
+=======
+<<<<<<< HEAD
+                        <!--  onclick="inserir();"   'id' => 'form',-->
+=======
+                        <!--  onclick="inserir();" -->
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
                     <button onclick="insert({{$form->id}})" class="btn btn-primary" ><i class="glyphicon glyphicon-plus"></i> Adicionar</button>
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 {!! Form::open(['action' => ('FormList\FieldController@index'),'id' => 'form', 'method' => 'GET']) !!}
                     <div class="col-md-4  col-xs-6">
                         <div class="input-group">
                             
+=======
+<<<<<<< HEAD
+                {!! Form::open(['action' => ('FormList\FieldController@index'),'id' => 'form', 'method' => 'GET']) !!}
+                    <div class="col-md-4  col-xs-6">
+                        <div class="input-group">
+                            {{-- {!! Form::hidden('id_form', $fields->form_id) !!} --}}
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
                             {!! Form::text('filtro_input', null, ['class' => 'form-control', 'placeholder' => 'Filtrar...']) !!}
                             <span class="input-group-btn">
                                 <button type="submit" class="btn btn-primary btn-flat btn_icon_filter"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span></button>
@@ -65,6 +135,21 @@ use App\Model\Form\FieldType;
                         </div>
                     </div>
                 {!! Form::close() !!}
+<<<<<<< HEAD
+=======
+=======
+                {{-- {!! Form::open(['action' => ('FormList\ListController@index'), 'id' => 'form', 'method' => 'GET']) !!} --}}
+                <div class="col-md-4  col-xs-6">
+                    <div class="input-group">
+                       {{-- {!! Form::text('filtro_input', null, ['class' => 'form-control', 'placeholder' => 'Filtrar...']) !!} --}}
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary btn-flat btn_icon_filter"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span></button>
+                        </span>
+                    </div>
+                </div>
+               {{-- {!! Form::close() !!}  --}}
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
             </div>
 
             <br/>
@@ -72,13 +157,28 @@ use App\Model\Form\FieldType;
                 <thead>
                     <tr>
                         <th class="col-sm-1">#</th>
+<<<<<<< HEAD
                         <th class="col-md-2">Rótulo</th>
                         <th class="col-md-3">Tipo</th>
                         <th class="col-md-1">Variável</th>
+=======
+<<<<<<< HEAD
+                        <th class="col-md-2">Rótulo</th>
+                        <th class="col-md-3">Tipo</th>
+                        <th class="col-md-1">Variável</th>
+=======
+                        <th class="col-md-2">Campo</th>
+                        <th class="col-md-4">Tipo</th>
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
                         <th class="col-md-1">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
                 @foreach ($fields as $row)
                     <tr>
                         <td>{{ $row->id }}</td>
@@ -113,15 +213,51 @@ use App\Model\Form\FieldType;
                     <div class="col-md-9">
                         <!-- {{--{!! $result->appends(['filtro_input' => $filter])->links() !!} --}} 
                     {{-- </div> --}}
+<<<<<<< HEAD
+=======
+=======
+                {{--@foreach ($result as $row)
+                    <tr>
+                        <td>{{ $row->id }}</td>
+                        <td><a onclick="createFeild({{$row->id}})" href="#">{{ $row->title }}</a> </td>
+                        <td>{{ $row->instructions }}</td>
+                        <td>{{ $row->notes }}</td>
+                <td>
+                    <button  type="button" class="btn btn-primary btn-xs" onclick="editar({{ $row->id }})"> <i class="glyphicon glyphicon-pencil"></i>&nbsp;</button>
+                    <button class="btn btn-danger btn-xs" onclick="deletar({{ $row->id }} )"><i class="glyphicon glyphicon-trash"></i>&nbsp;</button>
+                </td>
+                </tr>
+                @endforeach --}}
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-9">
+                        <!-- {{--{!! $result->appends(['filtro_input' => $filter])->links() !!} --}}-->  
+                    </div>
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
                     {{--<div class="col-md-3" style="text-align: right;">
                         <br/>
                          Mostrando {!! $result->firstItem() !!} a {!! $result->lastItem() !!}
                         de {!! $result->total() !!}
                     </div>--}}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
                 {{-- </div>
             </div> --}}
         </div>
         
+<<<<<<< HEAD
+=======
+=======
+                </div>
+            </div>
+        </div>
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
     </div>
 <!-- 
     {{--
@@ -129,9 +265,21 @@ use App\Model\Form\FieldType;
     @includeIf('layouts.partials.modal', ['idModal' => 'modal-form-cidade', 'idContent' => 'content-modal-cidade' ])
     @includeIf('layouts.partials.modal', ['idModal' => 'modal-form-regional', 'idContent' => 'content-modal-regional' ]) --}}
     -->
+<<<<<<< HEAD
     @includeIf('layouts.partials.modal', ['idModal' => 'modal-form-field', 'idContent' => 'content-modal-field'])
     @includeIf('layouts.partials.modal', ['idModal' => 'modal-form-field', 'idContent' => 'content-modal-field' ])
     @includeIf('layouts.partials.modal', ['idModal' => 'modal-form-confField', 'idContent' => 'content-modal-confField'])
+=======
+<<<<<<< HEAD
+    @includeIf('layouts.partials.modal', ['idModal' => 'modal-form-field', 'idContent' => 'content-modal-field'])
+    @includeIf('layouts.partials.modal', ['idModal' => 'modal-form-field', 'idContent' => 'content-modal-field' ])
+    @includeIf('layouts.partials.modal', ['idModal' => 'modal-form-confField', 'idContent' => 'content-modal-confField'])
+=======
+    @includeIf('layouts.partials.modallg', ['idModal' => 'modal-form-field', 'idContent' => 'content-modal-field'])
+    @includeIf('layouts.partials.modallg', ['idModal' => 'modal-form-field', 'idContent' => 'content-modal-field' ])
+   
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
 @stop
 
 @section('scripts-footer')

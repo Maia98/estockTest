@@ -56,7 +56,15 @@ Route::group(['middleware' => 'auth'], function () {
         require_once 'RouteForm/item.php';
         require_once 'RouteForm/field.php';
         require_once 'RouteForm/form.php';
+<<<<<<< HEAD
         require_once 'RouteForm/showform.php';
+=======
+<<<<<<< HEAD
+        require_once 'RouteForm/showform.php';
+=======
+        
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
 
     });
     

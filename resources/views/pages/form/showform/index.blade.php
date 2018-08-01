@@ -5,6 +5,7 @@
     <div class="box">
         <div class="box-header page-header">
             <h1><i class="glyphicon glyphicon-menu-right"></i>Formulários</h1>
+<<<<<<< HEAD
         </div>
         <div class="box-body">
             {!! Form::open(['action' => ('FormList\ShowFormController@index'), 'id' => 'form', 'method' => 'GET']) !!}
@@ -27,11 +28,38 @@
                         <th class="col-md-4">Instrução</th>
                         <th class="col-md-3">Descrição</th>
                         <th class="col-md-3">Ações</th>
+=======
+          
+        </div>
+        <div class="box-body">
+            
+                {{-- {!! Form::open(['action' => ('FormList\ListController@index'), 'id' => 'form', 'method' => 'GET']) !!} --}}
+                <div class="col-md-4  col-xs-6">
+                    <div class="input-group">
+                       {{-- {!! Form::text('filtro_input', null, ['class' => 'form-control', 'placeholder' => 'Filtrar...']) !!} --}}
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary btn-flat btn_icon_filter"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span></button>
+                        </span>
+                    </div>
+                </div>
+               {{-- {!! Form::close() !!}  --}}
+            </div>
+
+            <br/>
+            <div class="container">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="col-md-4">Título</th>
+                        <th class="col-md-4">Instrução</th>
+                        <th class="col-md-4">Descrição</th>
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
                     </tr>
                 </thead>
                 <tbody>
                 @foreach($form as $row)
                     <tr>
+<<<<<<< HEAD
                     <td>{{$row->title}}</td>
                     <td>{{$row->instructions}}</td>
                     <td>{{$row->notes}}</td>
@@ -39,10 +67,16 @@
                         <a class='btn btn-md btn-primary' href="{{route('create',['id' => $row->id])}}">Registrar</a>
                         <a class='btn btn-md btn-info' href="{{route('show',['id' => $row->id])}}">Visualizar</a>
                     </td>
+=======
+                    <td><a href="{{route('show',['id' => $row->id])}}"> {{$row->title}}</a></td>
+                    <td>{{$row->instructions}}</td>
+                    <td>{{$row->notes}}</td>
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
                     </tr>
                 @endforeach
                 </tbody>
             </table>
+<<<<<<< HEAD
             {{ $form->links() }}
             {{-- <div class="row">
                 <div class="col-md-12">
@@ -59,6 +93,23 @@
         </div>
     </div>
 </div>
+=======
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-9">
+                        <!-- {{--{!! $form->appends(['filtro_input' => $filter])->links() !!} --}}-->  
+                    </div>
+                    {{--<div class="col-md-3" style="text-align: right;">
+                        <br/>
+                         Mostrando {!! $form->firstItem() !!} a {!! $form->lastItem() !!}
+                        de {!! $form->total() !!}
+                    </div>--}}
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
 <!-- 
     {{--
     @includeIf('layouts.partials.modal', ['idModal' => 'modal-form-almoxarifado', 'idContent' => 'content-modal-almoxarifado' ])

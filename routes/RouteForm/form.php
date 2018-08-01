@@ -11,6 +11,10 @@ Route::group(['prefix' => 'form', 'namespace' => 'FormList'], function () {
         Route::post('/destroy', 'FormController@destroy')->name('destroy');
         
         //Campo
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
         Route::get('/field/{form?}', 'FieldController@index')->name('field');
         //Route::get('/filter', 'FieldController@filter');
         Route::get('/createField/{form}', 'FieldController@create')->name('createField');
@@ -21,6 +25,14 @@ Route::group(['prefix' => 'form', 'namespace' => 'FormList'], function () {
         Route::get('/createFieldConfig/{id}', 'FieldController@createConfig')->name('configField');
         Route::post('/storeFieldConfig', 'FieldController@storeConfig')->name('storeConfig');
 
+<<<<<<< HEAD
+=======
+=======
+        Route::get('/field/{form}', 'FieldController@index')->name('field');
+        Route::get('/createField/{form}', 'FieldController@create')->name('createField');
+        Route::post('/storeField', 'FieldController@store')->name('storeField');
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
     });
 
 ?>    

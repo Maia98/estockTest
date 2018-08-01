@@ -43,6 +43,10 @@
                 <div class="col-md-8 col-xs-6">  
                     <div class="input-group">
                         <!--  onclick="inserir();" -->
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
                         <button class="btn btn-primary" onclick="inserir();"><i class="glyphicon glyphicon-plus"></i> Adicionar</button>
                     </div>
                 </div>
@@ -51,12 +55,33 @@
                 <div class="col-md-4  col-xs-6">
                     <div class="input-group">
                        {!! Form::text('filtro_input', null, ['class' => 'form-control', 'placeholder' => 'Filtrar...']) !!}
+<<<<<<< HEAD
+=======
+=======
+                         <button class="btn btn-primary" onclick="inserir();"><i class="glyphicon glyphicon-plus"></i> Adicionar</button>
+                    </div>
+                </div>
+
+                {{-- {!! Form::open(['action' => ('FormList\ListController@index'), 'id' => 'form', 'method' => 'GET']) !!} --}}
+                <div class="col-md-4  col-xs-6">
+                    <div class="input-group">
+                       {{-- {!! Form::text('filtro_input', null, ['class' => 'form-control', 'placeholder' => 'Filtrar...']) !!} --}}
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-primary btn-flat btn_icon_filter"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span></button>
                         </span>
                     </div>
                 </div>
+<<<<<<< HEAD
                 {!! Form::close() !!}
+=======
+<<<<<<< HEAD
+               {!! Form::close() !!} 
+=======
+               {{-- {!! Form::close() !!}  --}}
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
             </div>
 
             <br/>
@@ -71,6 +96,10 @@
                     </tr>
                 </thead>
                 <tbody>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
                     @foreach ($result as $row)
                         <tr>
                             <td>{{ $row->id }}</td>
@@ -98,6 +127,37 @@
                     </div>
                 </div>
             </div> --}}
+<<<<<<< HEAD
+=======
+=======
+                @foreach ($result as $row)
+                    <tr>
+                        <td>{{ $row->id }}</td>
+                        <td><a  href="{{route('field',$row->id)}}">{{ $row->title }}</a> </td>
+                        <td>{{ $row->instructions }}</td>
+                        <td>{{ $row->notes }}</td>
+                <td>
+                    <button  type="button" class="btn btn-primary btn-xs" onclick="editar({{ $row->id }})"> <i class="glyphicon glyphicon-pencil"></i>&nbsp;</button>
+                    <button class="btn btn-danger btn-xs" onclick="deletar({{ $row->id }} )"><i class="glyphicon glyphicon-trash"></i>&nbsp;</button>
+                </td>
+                </tr>
+                @endforeach 
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-9">
+                        <!-- {{--{!! $result->appends(['filtro_input' => $filter])->links() !!} --}}-->  
+                    </div>
+                    {{--<div class="col-md-3" style="text-align: right;">
+                        <br/>
+                         Mostrando {!! $result->firstItem() !!} a {!! $result->lastItem() !!}
+                        de {!! $result->total() !!}
+                    </div>--}}
+                </div>
+            </div>
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
         </div>
     </div>
 <!-- 

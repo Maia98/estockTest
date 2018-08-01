@@ -8,17 +8,24 @@ use App\Model\Form\Form;
 use App\Model\Form\FormField;
 use App\Model\Form\FieldType;
 use App\Model\Form\Lista;
+<<<<<<< HEAD
 use App\Model\Form\ListItem;
+=======
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
 use Illuminate\Support\Facades\DB;
 
 class ShowFormController extends Controller
 {
+<<<<<<< HEAD
     private $nElem = 5;
+=======
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     public function index(Request $request)
     {
 
@@ -41,11 +48,23 @@ class ShowFormController extends Controller
         return view('pages.form.showform.index', compact(['form']));
     }*/
 
+=======
+    public function index()
+    {
+        //
+        $form = Form::all();
+        
+        
+        return view('pages.form.showform.index', compact(['form']));
+    }
+
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     public function create($id)
     {
 
@@ -101,6 +120,11 @@ class ShowFormController extends Controller
             DB::statement($statement);
         }
         return view("pages.form.showform.form", compact(['form', 'formfields']));
+=======
+    public function create()
+    {
+        //
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
     }
 
     /**
@@ -111,6 +135,7 @@ class ShowFormController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
         $form_id = $request->form_id;
         //$nameTable = Form::find($form_id);
         $variavel = FormField::select('name')->where('form_id', $form_id)->get();
@@ -138,6 +163,10 @@ class ShowFormController extends Controller
  
         DB::insert('insert into table'.$form_id.' ('.$field.') values ('.$values.')');
         return redirect('/sistema/showform/');
+=======
+        //
+      
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
     }
 
     /**
@@ -148,6 +177,7 @@ class ShowFormController extends Controller
      */
     public function show($id)
     {
+<<<<<<< HEAD
         $this->authorize('CADASTRAR_TABELAS_SISTEMA');
         
         $form = Form::find($id);
@@ -159,6 +189,61 @@ class ShowFormController extends Controller
         
         return view("pages.form.showform.showData", compact(['fields','data','fieldVar', 'nameColId','form']));
         
+=======
+        $form = Form::find($id);
+        $id_form = $form->id;
+        $formfields = FormField::where('form_id', $id_form)->get();
+        
+        if(isset($form) && isset($formfields)){
+
+        $statement = 'CREATE TABLE IF NOT EXISTS '.$form->nametable.' ( ';
+           
+        $statement .= " id_".$form->nametable." integer CONSTRAINT pk_id_".$form->nametable." PRIMARY KEY, ";
+       
+         foreach($formfields as $field){
+       
+            if(substr($field->type_id,0,5) === 'type-'){
+            $field_type_id = substr($field->type_id, 5); 
+            $type = FieldType::find($field_type_id);
+
+            if($type->value === 'text'){
+                $statement .= ' '.$field->name.' varchar(500), ';   
+            }
+            if($type->value === 'textarea'){
+                $statement .= ' '.$field->name.' text, '; 
+            }
+            if($type->value === 'time'){
+                $statement .= ' '.$field->name.' time, '; 
+            }
+            if($type->value === 'date'){
+                $statement .= ' '.$field->name.' date, '; 
+            }
+            if($type->value === 'datetime'){
+                $statement .= ' '.$field->name.' timestamp, '; 
+            }
+            if($type->value === 'file'){
+                $statement .= ' '.$field->name.' varchar(500), '; 
+            }
+            if($type->value === 'number'){
+                $statement .= ' '.$field->name.' int, '; 
+            }
+
+        }
+        elseif(substr($field->type_id,0,5) === 'list-'){
+            $field_list_id = substr($field->type_id, 5);
+            $list = Lista::find($field_list_id);
+            $statement .= ' '.$field->name.' varchar(500), ';
+        }
+        }
+        $statement .= ");";
+
+        
+        DB::statement($statement);
+        
+        }
+        
+        return view("pages.form.showform.form", compact(['form', 'formfields']));
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
     }
 
     /**
@@ -167,6 +252,7 @@ class ShowFormController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     public function edit($id, $form_id)
     {
         $this->authorize('CADASTRAR_TABELAS_SISTEMA');
@@ -217,6 +303,11 @@ class ShowFormController extends Controller
          
         
         return view("pages.form.showform.form", compact(['form', 'formfields', 'data', 'id_data']));
+=======
+    public function edit($id)
+    {
+        //
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
     }
 
     /**
@@ -226,6 +317,7 @@ class ShowFormController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     public function update(Request $request)
     {
         //
@@ -274,6 +366,13 @@ class ShowFormController extends Controller
 
         
     }
+=======
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
     /**
      * Remove the specified resource from storage.
      *
@@ -282,7 +381,10 @@ class ShowFormController extends Controller
      */
     public function destroy($id)
     {
+<<<<<<< HEAD
         $this->authorize('EXCLUIR_TABELAS_SISTEMA');
+=======
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
         //
     }
 }

@@ -4,16 +4,33 @@ namespace App\Http\Controllers\FormList;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Form\Form;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
 use Illuminate\Support\Facades\DB;
 
 class FormController extends Controller
 {
+<<<<<<< HEAD
     private $nElem = 5;
+=======
+    private $nElem = 10;
+=======
+
+class FormController extends Controller
+{
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
     public function index(Request $request)
     {
         $this->authorize('EXCLUIR_TABELAS_SISTEMA');
@@ -28,6 +45,17 @@ class FormController extends Controller
         }else
             $result = Form::paginate($this->nElem);
         
+<<<<<<< HEAD
+=======
+=======
+    public function index()
+    {
+        //
+
+       $result = Form::all();
+
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
         return view('pages.form.index', compact(['result']));
     }
 
@@ -39,7 +67,14 @@ class FormController extends Controller
     public function create()
     {
         //
+<<<<<<< HEAD
         $this->authorize('EXCLUIR_TABELAS_SISTEMA');
+=======
+<<<<<<< HEAD
+        $this->authorize('EXCLUIR_TABELAS_SISTEMA');
+=======
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
 
         return view("pages.form.form", compact(''));
     }
@@ -65,6 +100,7 @@ class FormController extends Controller
         }
         
         $form->fill($request->all());
+<<<<<<< HEAD
         //$form->nametable = 
         $validator = validator($request->all(), [
             'title' => 'required',
@@ -74,6 +110,22 @@ class FormController extends Controller
             'title.required' => 'Título não preenchido'
             /* 'nametable.required' => 'Nome da Tabela não preenchido.',
             'nametable.unique' => 'Nome da Tabela já existente.' */
+=======
+        
+        $validator = validator($request->all(), [
+            'title' => 'required',
+            'notes' => 'max:255|nullable',
+<<<<<<< HEAD
+            'nametable' => 'required|unique:forms'
+        ], [
+            'title.required' => 'Título não preenchido',
+            'nametable.required' => 'Nome da Tabela não preenchido.',
+            'nametable.unique' => 'Nome da Tabela já existente.'
+=======
+        ], [
+            'title.required' => 'Título não preenchido',
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
             ]
         );
 
@@ -194,7 +246,15 @@ class FormController extends Controller
                 return redirect()->action('FormList\FormController@index');
             } else{
                 $alert = "Erro ao excluir Formulário.";
+<<<<<<< HEAD
                 return redirect()->action('FormList\FormController@index',campact([ 'alert', 'result']));
+=======
+<<<<<<< HEAD
+                return redirect()->action('FormList\FormController@index',campact([ 'alert', 'result']));
+=======
+                return redirect()->action('FormList\FormController@index', 'alert', 'result');
+>>>>>>> 223099c3207da1a58ef67ead72aee7a7e4c69007
+>>>>>>> afa5779e42b414a12eb95d68a5bec7a2c91ce409
             }
         }else {
             $alert = "Formulário não tem permissão para ser excluido.";
